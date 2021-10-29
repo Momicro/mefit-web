@@ -11,8 +11,8 @@ import {ProgramService} from "../views/programs/program.service";
 
 @Component({
   selector: 'app-Dashboard',
-  templateUrl: './Dashboard.page.html',
-  styleUrls: ['./Dashboard.page.css']
+  templateUrl: './dashboard.page.html',
+  styleUrls: ['./dashboard.page.css']
 })
 export class DashboardPage extends BaseComponent implements OnInit {
 
