@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="header">
+      <h2>Programs:</h2>
+      <div class ="tab-add">
+        <button class="tab-dropbtn border-set">Add new</button>
+      </div>
+      <div class="tab-dropdown">
+        <button class="tab-dropbtn">Sort by category</button>
+        <div class="tab-dropdown-content">
+          <div (click)="sortByCategory($event)">all</div>
+          <div *ngFor="let category of programCategories" (click)="sortByCategory($event)">{{category}}</div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngFor="let program of filteredProgramList">
+      <program-short [program]="program"></program-short>
+    </ng-container>
+</div>
