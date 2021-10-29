@@ -5,6 +5,7 @@ import {Program} from "../../models/program.model";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Workout} from "../../models/workout.model";
 import {WorkoutService} from "../workouts/workout.service";
+import { environment as ENV } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,13 @@ export class ProgramService {
   private _error!: string;
   private _programCategories = new Set();
 
-  private rootURL: string = 'http://localhost:8080/api/v1/programs';
-
+  private apiBaseUrl : string = `${ENV.apiBaseUrl}/api/v1/programs`;
 
   constructor(private readonly http: HttpClient,
               private readonly workoutService: WorkoutService) { }
 
   private fetchProgramList: Observable<Program[]> =
-    this.http.get<Program[]>(this.rootURL)
+    this.http.get<Program[]>(this.apiBaseUrl)
 
 
   //subscriber for the programlist observable
